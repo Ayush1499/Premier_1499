@@ -1,0 +1,655 @@
+/* Color Variables Setup */
+
+:root {
+  --bg-color: #f4f3ef;          /* Poori website ka soft luxury light background */
+  --text-color: #1a1a1a;        /* Sharp dark text for readability */
+  --border-color: #1a1a1a;      /* Clean borders */
+  --nav-bg: #f4f3ef;
+  --marquee-border: #1a1a1a;
+  
+  /* #page_para ke liye specific colors */
+  --para-bg: #f4f3ef;
+  --para-text-dim: #b0aca2;     /* Unscrolled muted text */
+  --para-text-active: #1a1a1a;  /* Scrolled active text */
+}
+
+.dark-mode {
+  --bg-color: #0e0e0e;          /* Poori website ka rich charcoal dark background */
+  --text-color: #f3f4f6;        /* Light text */
+  --border-color: #333333;      /* Subtle dark borders */
+  --nav-bg: #0e0e0e;
+  --marquee-border: #444444;
+  
+  /* #page_para ke liye specific colors */
+  --para-bg: #0e0e0e;
+  --para-text-dim: #3a3a3a;     /* Unscrolled muted dark text */
+  --para-text-active: #f3f4f6;  /* Scrolled active bright text */
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding-top: 0.1px;
+  overflow-x: hidden;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+nav {
+  width: 100%;
+  height: 12vh;
+  background-color: var(--nav-bg);
+  margin-top: 2vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 30px;
+  border: 3px solid var(--border-color);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+nav h2 {
+  width: 20vw;
+  font-size: 25px;
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  border-right: 3px solid var(--border-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: border-color 0.3s ease;
+}
+nav h2:nth-last-child(2) {
+  width: 15vw;
+  border-right: none;
+}
+/* Note: Last child ab toggle button banega JS se */
+nav h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 100%;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 1000;
+  font-style: normal;
+  font-size: 60px;
+  letter-spacing: -5px;
+  padding-bottom: 10px;
+}
+.center {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 4vw;
+}
+.content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.content video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 15% 15%;
+}
+#tag1 {
+  width: 92%;
+  position: absolute;
+  bottom: 10vw;
+  border-bottom: 2px solid var(--text-color);
+  font-size: 40px;
+  padding-left: 2vw;
+}
+#tag2 {
+  position: absolute;
+  bottom: 6.5vw;
+  font-size: 20px;
+  padding-left: 2vw;
+}
+#scroll {
+  width: 100vw;
+  height: 50%;
+  white-space: nowrap;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+#container {
+  height: 100%;
+  width: 110%;
+  display: inline-block;
+  padding: 2vw;
+  animation-name: scroll;
+  animation-timing-function: linear;
+  animation-duration: 20s;
+  animation-delay: 0.2ms;
+  animation-iteration-count: infinite;
+}
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+#container img {
+  height: 95%;
+  width: 15%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 50%;
+  margin: 0vw 1vw;
+}
+#alphabet {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.8vw;
+  margin-top: 2.5vw;
+  border-bottom: 2px solid var(--border-color);
+  border-top: 2px solid var(--border-color);
+  padding: 8px;
+  margin-bottom: 5vw;
+  transition: border-color 0.3s ease;
+}
+#alphabet h5 {
+  font-size: 20px;
+  font-style: italic;
+  margin-right: 10px;
+}
+#alphabet h5:hover {
+  border-bottom: 2px solid var(--text-color);
+}
+#alphabet h6 {
+  font-size: 17px;
+  font-style: italic;
+  padding: 0.4vw;
+  border-radius: 50%;
+  transition: all ease 0.1s;
+  text-align: center;
+  cursor: pointer;
+}
+#alphabet h6:hover {
+  border: 2px solid var(--text-color);
+}
+#page2 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 2vw 0vw;
+}
+#part1 {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1vw;
+  gap: 1vw;
+}
+#part1 h1 {
+  margin-left: 3vw;
+  align-self: flex-start;
+}
+#part2 {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1vw;
+  gap: 1vw;
+}
+#part2 img {
+  width: 90%;
+  height: 70%;
+  object-fit: cover;
+  object-position: 20% 20%;
+  margin-bottom: 10px;
+}
+#a {
+  width: 90%;
+  height: 30%;
+  display: flex;
+  gap: 2vw;
+}
+#a h3 {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+}
+#a p {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 300;
+}
+#page3 {
+  width: 100%;
+  height: 100%;
+  padding: 3vw;
+  display: flex;
+}
+#page3_part1 {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+}
+#page3_part1 h2 {
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+#page3_part1 img {
+  margin: 10px;
+  border-radius: 50%;
+}
+#page3_part2 {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#page3_part2 img {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  object-position: 28% 28%;
+}
+#page4 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5vw;
+}
+#page5 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#page5 > h1 {
+  width: 100%;
+  height: 20%;
+  font-size: 5vw;
+  font-family: "Trebuchet MS", sans-serif;
+  letter-spacing: -5px;
+  text-align: center;
+  padding-top: 2vw;
+}
+#elem {
+  width: 100%;
+  height: 18vh;
+  border-bottom: 2px solid var(--border-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 50px;
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+#elem > h1 {
+  font-size: 30px;
+  font-family: "Gill Sans", sans-serif;
+  font-weight: 500;
+  letter-spacing: 5px;
+}
+#fifth h1 {
+  font-family: "Zalando Sans Expanded", sans-serif;
+  font-weight: 600;
+  font-size: 50px;
+  margin-right: 10vw;
+  text-align: start;
+}
+#fifth p {
+  font-family: "Dancing Script", cursive;
+}
+#elem img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  position: absolute;
+  left: 10%;
+  opacity: 0%;
+  transition: all ease 0.9s;
+}
+#elem:hover img {
+  opacity: 100%;
+  left: 30%;
+}
+#page6 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 2vw 0vw;
+}
+#sixth_a {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1vw;
+  gap: 1vw;
+}
+#sixth_a h1 {
+  margin-left: 3vw;
+  align-self: flex-start;
+}
+#sixth_b {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+#sixth_b h1 {
+  width: 100%;
+  height: 15vh;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 1000;
+  padding: 2vw;
+  text-align: start;
+}
+#sixth_b h3 {
+  width: 100%;
+  height: 20vh;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  padding: 2vw;
+  text-align: start;
+}
+#sixth_b h6 {
+  width: 100%;
+  height: 15vh;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  padding: 2vw;
+}
+#part_a {
+  margin-top: 44px;
+  width: 100%;
+  height: 35vh;
+  display: flex;
+  flex-direction: row;
+}
+#part_a img {
+  width: 50%;
+  height: 100%;
+  padding: 0.8vw;
+  object-fit: cover;
+  object-position: top;
+}
+#page7 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5vw;
+}
+#page7 video {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  object-position: 40% 40%;
+  border-radius: 20px;
+}
+#page8 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 2vw 0vw;
+}
+#eight_1 {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1vw;
+  gap: 1vw;
+}
+#eight_1 h1 {
+  margin-left: 3vw;
+  align-self: flex-start;
+}
+#eight_2 {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1vw;
+  gap: 1vw;
+}
+#eight_2 img {
+  width: 90%;
+  height: 70%;
+  object-fit: cover;
+  object-position: 20% 20%;
+  margin-bottom: 10px;
+}
+#page9 {
+  width: 100%;
+  height: 100%;
+}
+#marque {
+  width: 100%;
+  height: 15vh;
+  white-space: nowrap;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  border-bottom: 2px solid var(--marquee-border);
+  border-top: 2px solid var(--marquee-border);
+  margin-top: 6vw;
+  transition: border-color 0.3s ease;
+}
+#marque h1 {
+  font-size: 70px;
+  display: inline-block;
+  text-transform: uppercase;
+  -webkit-text-stroke: 2px var(--text-color);
+  color: transparent;
+  font-family: "Zalando Sans Expanded", sans-serif;
+  font-weight: 1000;
+  text-align: center;
+  animation-name: slide;
+  animation-timing-function: linear;
+  animation-delay: 1s;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+  margin-right: 15px;
+  transition: -webkit-text-stroke 0.3s ease;
+}
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+#last_section {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  padding: 20px;
+  margin-top: 4vw;
+}
+#box1 {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+#box1 h1 {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-weight: 1000;
+  font-size: 60px;
+  letter-spacing: -5px;
+}
+#box2,
+#box3 {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#box2 img,
+#box3 img {
+  width: 90%;
+  height: 60%;
+  object-fit: cover;
+  object-position: 40% 40%;
+  border-radius: 20px;
+  margin-top: 2vw;
+}
+#box2 h2,
+#box3 h2 {
+  width: 100%;
+  height: 20vh;
+  font-family: "Dancing Script", cursive;
+  font-weight: 500;
+  padding: 1vw;
+  text-align: start;
+}
+#page10 {
+  width: 100%;
+  height: 50%;
+}
+#footer {
+  width: 100%;
+  height: 90%;
+  border-bottom: 2px solid var(--border-color);
+  border-top: 2px solid var(--border-color);
+  display: flex;
+  transition: border-color 0.3s ease;
+}
+#bucket1 {
+  width: 40%;
+  height: 100%;
+  border: 2px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  padding: 1vw;
+  transition: border-color 0.3s ease;
+}
+#bucket1 h1 {
+  width: 300px;
+  height: 100%;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-weight: 1000;
+  font-size: 60px;
+  letter-spacing: -5px;
+  margin-top: -1vw;
+  margin-left: 1vw;
+}
+#bucket1 sup {
+  font-size: 30px;
+  margin-bottom: 20px;
+  padding: 8px;
+}
+#bucket1 h2 {
+  width: 20vw;
+  font-size: 33px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  margin-left: 10vw;
+  margin-top: 1.3vw;
+}
+#bucket2 {
+  width: 20%;
+  height: 100%;
+  border: 2px solid var(--border-color);
+  text-align: center;
+  transition: border-color 0.3s ease;
+}
+#bucket2 h2 {
+  width: 20vw;
+  font-size: 33px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  margin-top: 2vw;
+}
+#bucket3 {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#bucket3 h2 {
+  width: 100%;
+  height: 40%;
+  text-align: center;
+  margin-top: 5vw;
+}
+#bucket3 h3 {
+  width: 100%;
+  height: 60%;
+  text-align: center;
+}
+
+/* text overlay start from here */
+/* Page Para Dynamic Color Variables for Dark/Light Mode */
+#page_para {
+    padding: 5vw;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--para-bg); /* Ab ye light/dark dono mein change hoga */
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#page_para h1 {
+    font-size: 4.8vw;
+    font-weight: 500;
+    color: var(--para-text-dim); /* Shuruat mein dim/unscrolled color */
+    line-height: 4.5vw;
+    text-align: center;
+    overflow: visible;     
+    transition: color 0.3s ease;
+}
+
+#page_para h1 span {
+    transform: translateY(20px);
+    display: inline-block;
+    white-space: pre;      
+    overflow: visible;     
+    pointer-events: none;  
+}

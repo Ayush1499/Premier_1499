@@ -1,0 +1,112 @@
+HTML CODE
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">        
+
+        <div id="page2">
+            <h1 id="firsth1">Set within the</h1>
+            <h1>oak tree forest of</h1>
+            <h1>verdant pine and</h1>
+            <h1>Hotel Odisej Mljet is</h1>
+            <h1>Mljet National Park,</h1>
+            <h1>passenger or car</h1>
+            <h1>just two hours by</h1>
+            <h1>ferry from</h1>
+            <h1>Dubrovnik.</h1>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    CSS CODE
+#page_para{
+    padding: 5vw;
+    width: 100%;
+    height: 100vh;
+    background-color: #5B6647;
+}
+#page_para h1{
+    font-size: 4.8vw;
+    font-weight: 500;
+    color:#434B34;
+    line-height: 4.5vw;
+    text-align: center;
+}
+
+#page_para h1 span {
+    transform: translateY(20px);
+    display: inline-block;
+    white-space: pre;      /* Ye sabse important hai spaces ko sahi rakhne ke liye */
+    overflow: visible;     /* Taaki wo ajeeb se bars gayab ho jayein */
+    pointer-events: none;  /* Taaki letters par click karne se widget na khule */
+}
+
+#page_para h1 {
+    overflow: visible;     /* Parent container ko bhi clean rakhein */
+}
+      JAVASCRIPT CODE
+      
+
+// Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
+
+const locoScroll = new LocomotiveScroll({
+  el: document.querySelector("#main"),
+  smooth: true
+});
+// each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
+locoScroll.on("scroll", ScrollTrigger.update);
+
+// tell ScrollTrigger to use these proxy methods for the "#main" element since Locomotive Scroll is hijacking things
+ScrollTrigger.scrollerProxy("#main", {
+  scrollTop(value) {
+    return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+  }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+  getBoundingClientRect() {
+    return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+  },
+  // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+  pinType: document.querySelector("#main").style.transform ? "transform" : "fixed"
+});
+
+// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
+ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+
+// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+ScrollTrigger.refresh();
+
+
+
+var allh1 = document.querySelectorAll("h1");
+allh1.forEach(function(elem){
+    var clutter = ""
+    var texth1 = elem.textContent
+    var splitedtext = texth1.split("")
+    splitedtext.forEach(function(e){
+        clutter += `<span>${e}</span>`
+    })
+    elem.innerHTML = clutter
+})
+// for 1 element only
+// var texth1 = document.querySelector("#firsth1").textContent
+// var splitedtext = texth1.split("")
+// var clutter = ""
+// splitedtext.forEach(function(elem){
+//     clutter += `<span>${elem}</span>`
+// })
+// document.querySelector("#firsth1").innerHTML=clutter
+// console.log(clutter);
+
+gsap.to("#page_para h1 span",{
+    color: " #F7F7EE",
+    opacity:1,
+    stagger:0.2,
+    // stagger: { amount: 1, from: "center" },
+    scrollTrigger:{
+        scroller:"#main",
+        trigger:"#page_para #firsth1",
+        markers:true,
+        start:"top 80%",
+        end:"top 10%",
+        scrub:2,
+    }
+})
+
